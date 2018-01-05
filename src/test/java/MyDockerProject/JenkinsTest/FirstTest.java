@@ -23,7 +23,7 @@ public class FirstTest {
 			 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver2");
 		}
 		else {
-			Runtime.getRuntime().exec("sudo chmod +x chromedriver3");
+			Runtime.getRuntime().exec("sudo chmod +x drivers/chromedriver3");
 			System.setProperty("webdriver.chrome.driver", "drivers/chromedriver3");
 		}
 
