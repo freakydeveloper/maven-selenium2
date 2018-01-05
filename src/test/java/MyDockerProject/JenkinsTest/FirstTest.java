@@ -2,6 +2,8 @@ package MyDockerProject.JenkinsTest;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -12,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class FirstTest {
 
 	@Test
-	public void test() throws InterruptedException {
+	public void test() throws InterruptedException, IOException {
 		WebDriver driver;
 		String os = System.getProperty("os.name");
 		System.out.println(System.getProperty("os.name"));
@@ -20,9 +22,12 @@ public class FirstTest {
 
 			 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver2");
 		}
-		else
+		else {
+			Runtime.getRuntime().exec("sudo chmod +x chromedriver3");
+			System.setProperty("webdriver.chrome.driver", "drivers/chromedriver3");
+		}
 
-			 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver3");
+			 
 	      driver = new ChromeDriver(); 
 	      driver.get("https://www.google.ae/"); 
 	      driver.findElement(By.name("q")).sendKeys("GMAIL");
