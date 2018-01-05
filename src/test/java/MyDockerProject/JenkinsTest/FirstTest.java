@@ -14,7 +14,15 @@ public class FirstTest {
 	@Test
 	public void test() throws InterruptedException {
 		WebDriver driver;
-		 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver2");
+		String os = System.getProperty("os.name");
+		System.out.println(System.getProperty("os.name"));
+		if(os.toLowerCase().contains("mac")) {
+
+			 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver2");
+		}
+		else
+
+			 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver3");
 	      driver = new ChromeDriver(); 
 	      driver.get("https://www.google.ae/"); 
 	      driver.findElement(By.name("q")).sendKeys("GMAIL");
