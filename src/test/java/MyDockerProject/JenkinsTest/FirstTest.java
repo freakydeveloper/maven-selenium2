@@ -2,11 +2,15 @@ package MyDockerProject.JenkinsTest;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
 import java.io.IOException;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -39,6 +43,9 @@ public class FirstTest {
 	      System.out.println("link text : "+element.getText());
 	      element.click();
 	      System.out.println("TITLE"+driver.getTitle());
+	      File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	   // Now you can do whatever you need to do with it, for example copy somewhere
+	   FileUtils.copyFile(scrFile, new File("/home/Screenshot.png"));
 	      driver.quit();
 	
 	
