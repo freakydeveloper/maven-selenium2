@@ -31,10 +31,13 @@ public class FirstTest {
 			System.setProperty("webdriver.chrome.driver", "drivers/chromedriver3");
 		}
 
-			 
+			System.out.println("Test2"); 
 	      driver = new ChromeDriver(); 
+	      System.out.println("Test2"); 
 	      driver.get("https://www.google.ae/"); 
+	      System.out.println("Test3"); 
 	      driver.findElement(By.name("q")).sendKeys("GMAIL");
+	      System.out.println("Test4"); 
 	      driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
 	      Thread.sleep(5000);;
 	      System.out.println("TITLE"+driver.getTitle());
